@@ -12,11 +12,15 @@ Tabela cliente;
 -nome_cliente
 -cpf 
 -cep
+-created_at
+-updated_at
 
 Tabela venda;
 -id
 -FK_id_conselho 
 -FK_id_cliente  
+-created_at
+-updated_at
 
 Para viabilizar a venda de conselhos, foram criadas duas novas tabelas no banco de dados: "cliente" e "venda". Ambas as 
 tabelas possuem uma coluna "id" único definido como PRIMARY KEY, garantindo a identificação única de cada registro.
@@ -33,4 +37,6 @@ Para evitar ambiguidade entre os nomes das colunas, foi adotada a prática de no
 cada tabela. Por exemplo, a coluna "nome" está presente em duas tabelas diferentes: "cliente" e "advice". Para evitar conflitos, 
 foi utilizado o prefixo "nome_cliente" na tabela "cliente" e "nome" na tabela "advice".
 
-Durante a criação das tabelas também foi tomado devidos cuidados como não permitir adição de registros com id NULL.
+Durante a criação das tabelas também foi tomado devidos cuidados como não permitir adição de registros com id NULL e a adição das 
+colunas "created_at" e "update_at" que possuem extrema importância para o registro e controle das informações 
+nas tabelas "cliente" e "venda", pois pode ser verificado a data que foi criado e atualizado os registros na base de dados.

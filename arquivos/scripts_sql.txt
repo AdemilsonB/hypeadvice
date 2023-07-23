@@ -36,6 +36,8 @@ CREATE TABLE IF NOT EXISTS public.cliente
     nome_cliente character varying COLLATE pg_catalog."default",
     cpf character varying COLLATE pg_catalog."default",
     cep character varying COLLATE pg_catalog."default",
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     CONSTRAINT cliente_pkey PRIMARY KEY (id)
 )
 WITH (
@@ -61,6 +63,8 @@ CREATE TABLE IF NOT EXISTS public.venda
     id bigint NOT NULL,
     "FK_id_conselho" bigint,
     "FK_id_cliente" bigint,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     CONSTRAINT vendas_pkey PRIMARY KEY (id),
     CONSTRAINT "FK_id_cliente" FOREIGN KEY ("FK_id_cliente")
         REFERENCES public.cliente (id) MATCH SIMPLE
