@@ -1,0 +1,36 @@
+Descrição do Sistema de Vendas implementado
+Schemas de criação das tabelas no diretório arquivos/scripts_sql.txt
+
+Tabela advice;
+-id 
+-descricao
+-nome
+-tipo 
+
+Tabela cliente;
+-id 
+-nome_cliente
+-cpf 
+-cep
+
+Tabela venda;
+-id
+-FK_id_conselho 
+-FK_id_cliente  
+
+Para viabilizar a venda de conselhos, foram criadas duas novas tabelas no banco de dados: "cliente" e "venda". Ambas as 
+tabelas possuem uma coluna "id" único definido como PRIMARY KEY, garantindo a identificação única de cada registro.
+
+A partir dessas informações, é possível estabelecer uma relação entre as tabelas "cliente" e "venda". A tabela "venda" possui 
+duas colunas denominadas FOREIGN KEY, que faz referência aos "ids" presentes nas tabelas "cliente" e "advice". Essa relação 
+permite vincular cada venda a um cliente específico e ao conselho relacionado, facilitando o rastreamento das informações e 
+mantendo a integridade dos dados no banco de dados.
+
+Com essas tabelas e suas relações configuradas, o sistema está pronto para gerenciar as vendas de conselhos, proporcionando 
+uma estrutura sólida para registrar e rastrear as transações entre os clientes e os conselhos.
+
+Para evitar ambiguidade entre os nomes das colunas, foi adotada a prática de nomear as colunas com referências específicas a 
+cada tabela. Por exemplo, a coluna "nome" está presente em duas tabelas diferentes: "cliente" e "advice". Para evitar conflitos, 
+foi utilizado o prefixo "nome_cliente" na tabela "cliente" e "nome" na tabela "advice".
+
+Durante a criação das tabelas também foi tomado devidos cuidados como não permitir adição de registros com id NULL.
